@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+	<div id="main">
+		<div class="box">
+			<div class="pic">
+				<img src="images/0.png" />
+			</div>
+		</div>	
+		<div class="box">
+			<div class="pic">
+				<img src="images/1.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/2.jpg" />
+			</div>
+		</div>		
+		<div class="box">
+			<div class="pic">
+				<img src="images/3.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/4.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/5.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/6.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/7.png" />
+			</div>
+		</div>	
+		<div class="box">
+			<div class="pic">
+				<img src="images/8.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/9.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/10.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/11.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/12.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/13.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/14.png" />
+			</div>
+		</div>
+		<div class="box">
+			<div class="pic">
+				<img src="images/15.png" />
+			</div>
+		</div>												
+	</div>
+	<script type="text/javascript">
+		
+	var dataTnt = {"data":[{"src":'0.png'},{"src":'1.png'},{"src":'2.jpg'}]}
+	window.onscroll = function(){
+		if(checkScrollSlide()){
+			var oParent = document.getElementById('main');
+			//将数据块渲染到页面尾部
+			for(var i = 0;i<dataTnt.data.length;i++){
+				var oBox = document.createElement('div');
+				oBox.className = 'box';
+				oParent.appendChild(oBox);
+				var oPic = document.createElement('div');
+				oPic.className = 'pic';
+				oBox.appendChild(oPic);
+				var oImg = document.createElement('img');
+				oImg.src = "images/"+dataTnt.data[i].src;
+				oPic.appendChild(oImg);
+							}
+		}
+		// checkScrollSlide();
+		// waterfall('main','box');
+	}
+
+	function getByClass(parent,clsName){
+	var boxArr = new Array();//存储获取到的所有class为box的元素
+	var oElements = document.getElementsByTagName('*');
+	for(var i = 0;i<oElements.length;i++){
+		if(oElements[i].className==clsName){
+			boxArr.push(oElements[i]);
+		}
+	}
+	return boxArr;
+}
+	function checkScrollSlide(){
+	var oParent = document.getElementById('mian');
+	var oBoxs = getByClass(oParent,'box');
+	var lastBoxH = oBoxs[oBoxs.length-1].offsetTop+Math.floor(oBoxs[oBoxs.length-1].offsetHeight/2);
+	var scrollTop = document.body.scrollTop || document.documentElement.scrollTop;
+	// console.log(scrollTop);
+	var height = document.body.clientHeight || document.documentElement.clientHeight;
+	// console.log(height);
+	return (lastBoxH<scrollTop+height)?true:false;
+}
+	</script>
+</body>
+</html>
